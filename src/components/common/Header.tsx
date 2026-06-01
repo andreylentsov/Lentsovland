@@ -33,7 +33,7 @@ const Header = () => {
                     <Link to="/" className="logo" onClick={handleLinkClick}>
                         <div className="logo__icon">🐱</div>
                         <div className="logo__text">
-                            <span className="logo__title">Британский Рай</span>
+                            <span className="logo__title">Lentsofland</span>
                             <span className="logo__subtitle">Питомник британских кошек</span>
                         </div>
                     </Link>
@@ -84,9 +84,9 @@ const Header = () => {
 
                     {/* Контактная информация */}
                     <div className="header__contact">
-                        <a href="tel:+79123456789" className="header__phone">
+                        <a href="tel:+79911183092" className="header__phone">
                             <span className="header__phone-icon">📞</span>
-                            <span>+7 (912) 345-67-89</span>
+                            <span>+7 (991) 118-30-92</span>
                         </a>
                     </div>
 
@@ -157,8 +157,8 @@ const Header = () => {
                         </NavLink>
                     </nav>
                     <div className="mobile-menu__contact">
-                        <a href="tel:+79123456789" className="mobile-menu__phone">
-                            📞 +7 (912) 345-67-89
+                        <a href="tel:+79911183092" className="mobile-menu__phone">
+                            📞 +7 (991) 118-30-92
                         </a>
                         <a href="mailto:info@britcat.ru" className="mobile-menu__email">
                             ✉️ info@britcat.ru
