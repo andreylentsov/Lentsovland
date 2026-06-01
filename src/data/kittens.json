@@ -1,0 +1,53 @@
+[
+    {
+        "id": 1,
+        "name": "Марсель",
+        "breed": "Британская короткошерстная",
+        "color": "Голубой",
+        "age": 0.5,
+        "gender": "male",
+        "description": "Очень активный и любопытный малыш. Любит играть и исследовать все вокруг.",
+        "photo": "/src/assets/images/kittens/marcel.jpg",
+        "price": 45000,
+        "isBooked": false,
+        "birthDate": "15.01.2025",
+        "parents": {
+            "father": "Леопольд",
+            "mother": "Клеопатра"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Симба",
+        "breed": "Британская короткошерстная",
+        "color": "Золотой",
+        "age": 0.5,
+        "gender": "male",
+        "description": "Спокойный и ласковый котенок. Любит сидеть на руках.",
+        "photo": "/src/assets/images/kittens/simba.jpg",
+        "price": 55000,
+        "isBooked": true,
+        "birthDate": "20.12.2024",
+        "parents": {
+            "father": "Оскар",
+            "mother": "Багира"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Луна",
+        "breed": "Британская короткошерстная",
+        "color": "Лиловый",
+        "age": 0.4,
+        "gender": "female",
+        "description": "Нежная и игривая девочка. Очень любит внимание.",
+        "photo": "/src/assets/images/kittens/luna.jpg",
+        "price": 50000,
+        "isBooked": false,
+        "birthDate": "10.02.2025",
+        "parents": {
+            "father": "Леопольд",
+            "mother": "Клеопатра"
+        }
+    }
+]
