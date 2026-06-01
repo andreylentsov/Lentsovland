@@ -119,48 +119,8 @@ const AboutPage = () => {
                     </div>
                 </section>
 
-                {/* Команда */}
-                <section className="team">
-                    <h2>Наша команда</h2>
-                    <div className="team-grid">
-                        <div className="team-member">
-                            <img 
-                                src="/src/assets/images/team/owner.jpg" 
-                                alt="Владелец питомника"
-                                className="team-member__photo"
-                            />
-                            <h3>Елена</h3>
-                            <p>Основатель питомника</p>
-                            <span className="team-member__desc">
-                                Фелинолог со стажем 15 лет, судья международных выставок
-                            </span>
-                        </div>
-                        <div className="team-member">
-                            <img 
-                                src="/src/assets/images/team/vet.jpg" 
-                                alt="Ветеринар"
-                                className="team-member__photo"
-                            />
-                            <h3>Анна</h3>
-                            <p>Ветеринарный врач</p>
-                            <span className="team-member__desc">
-                                Специалист по генетике и репродукции кошек
-                            </span>
-                        </div>
-                        <div className="team-member">
-                            <img 
-                                src="/src/assets/images/team/groomer.jpg" 
-                                alt="Грумер"
-                                className="team-member__photo"
-                            />
-                            <h3>Мария</h3>
-                            <p>Грумер-эксперт</p>
-                            <span className="team-member__desc">
-                                Подготовка к выставкам, уход за шерстью
-                            </span>
-                        </div>
-                    </div>
-                </section>
+
+            
 
                 {/* Лицензии и сертификаты */}
                 <section className="certificates">

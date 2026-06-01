@@ -11,7 +11,8 @@ const Footer = () => {
                     <div className="footer__col">
                         <div className="footer__logo">
                             <span className="footer__logo-icon">🐱</span>
-                            <span className="footer__logo-text">Британский Рай</span>
+
+                            <span className="footer__logo-text">Lentsofland</span>
                         </div>
                         <p className="footer__description">
                             Питомник британских кошек с 2014 года. 
@@ -86,22 +87,22 @@ const Footer = () => {
                     <div className="footer__col">
                         <h3 className="footer__title">Контакты</h3>
                         <ul className="footer__contacts">
-                            <li className="footer__contact-item">
+                            {/* <li className="footer__contact-item">
                                 <span className="footer__contact-icon">📍</span>
                                 <span>г. Москва, ул. Кошачья, 15</span>
-                            </li>
+                            </li> */}
                             <li className="footer__contact-item">
                                 <span className="footer__contact-icon">📞</span>
-                                <a href="tel:+79123456789">+7 (912) 345-67-89</a>
+                                <a href="tel:+79911183092">+7 (991) 118-30-92</a>
                             </li>
-                            <li className="footer__contact-item">
+                            {/* <li className="footer__contact-item">
                                 <span className="footer__contact-icon">✉️</span>
                                 <a href="mailto:info@britcat.ru">info@britcat.ru</a>
-                            </li>
-                            <li className="footer__contact-item">
+                            </li> */}
+                            {/* <li className="footer__contact-item">
                                 <span className="footer__contact-icon">🕐</span>
                                 <span>Ежедневно: 10:00 - 20:00</span>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
@@ -109,7 +110,7 @@ const Footer = () => {
                 {/* Нижняя часть с копирайтом */}
                 <div className="footer__bottom">
                     <p className="footer__copyright">
-                        © {currentYear} Питомник "Британский Рай". Все права защищены.
+                        © {currentYear} Питомник "Lentsofland". Все права защищены.
                     </p>
                     <p className="footer__dev">
                         Разработка сайта — 
