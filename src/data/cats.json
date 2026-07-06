@@ -6,7 +6,7 @@
         "color": "ny 12",
         "age": 3,
         "description": "Очень добрый и спокойный кот. Любит детей. Имеет награды на выставках.",
-        "photo": "/src/assets/images/cats/leopold.jpg"
+        "photo": "/src/data/photo_5357230515418765587_x.jpg"
     },
     {
         "id": 2,
@@ -15,6 +15,6 @@
         "color": "ny 12",
         "age": 2,
         "description": "Грациозная и игривая кошка. Отличная мама.",
-        "photo": "/src/assets/images/cats/kleopatra.jpg"
+        "photo": "/src/data/photo_5357230515418765578_y.jpg"
     }
 ]
