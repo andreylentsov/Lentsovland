@@ -1,53 +1,104 @@
 [
     {
         "id": 1,
-        "name": "Марсель",
+        "name": "Wictoria Lentsofland",
         "breed": "Британская короткошерстная",
-        "color": "Голубой",
-        "age": 0.5,
-        "gender": "male",
+        "color": "ny 1133",
+        "age": 0.3,
+        "gender": "female",
         "description": "Очень активный и любопытный малыш. Любит играть и исследовать все вокруг.",
-        "photo": "/src/assets/images/kittens/marcel.jpg",
-        "price": 45000,
-        "isBooked": false,
-        "birthDate": "15.01.2025",
+        "photo": "/Images/kittens/Wictoria Lentsofland.jpg",
+        "isBooked": true,
+        "birthDate": "24.04.2026",
+        "litter": "24.04.2026",
         "parents": {
-            "father": "Леопольд",
-            "mother": "Клеопатра"
+            "father": "Louis Vuitton Lentsofland",
+            "mother": "Q-Belle Lentsofland"
         }
     },
     {
         "id": 2,
-        "name": "Симба",
+        "name": "Winter Lentsofland",
         "breed": "Британская короткошерстная",
-        "color": "Золотой",
-        "age": 0.5,
+        "color": "ny 1133",
+        "age": 0.3,
         "gender": "male",
         "description": "Спокойный и ласковый котенок. Любит сидеть на руках.",
-        "photo": "/src/assets/images/kittens/simba.jpg",
-        "price": 55000,
+        "photo": "/Images/kittens/Winter Lentsofland.jpg",
         "isBooked": true,
-        "birthDate": "20.12.2024",
+        "birthDate": "24.04.2026",
+        "litter": "24.04.2026",
         "parents": {
-            "father": "Оскар",
-            "mother": "Багира"
+            "father": "Louis Vuitton Lentsofland",
+            "mother": "Q-Belle Lentsofland"
         }
     },
     {
         "id": 3,
-        "name": "Луна",
+        "name": "Wildrose Lentsofland",
         "breed": "Британская короткошерстная",
-        "color": "Лиловый",
-        "age": 0.4,
+        "color": "ny 12",
+        "age": 0.3,
         "gender": "female",
         "description": "Нежная и игривая девочка. Очень любит внимание.",
-        "photo": "/src/assets/images/kittens/luna.jpg",
-        "price": 50000,
+        "photo": "/Images/kittens/Wildrose Lentsofland.jpg",
         "isBooked": false,
-        "birthDate": "10.02.2025",
+        "birthDate": "24.04.2026",
+        "litter": "24.04.2026",
         "parents": {
-            "father": "Леопольд",
-            "mother": "Клеопатра"
+            "father": "Louis Vuitton Lentsofland",
+            "mother": "Q-Belle Lentsofland"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Yarden Lentsofland",
+        "breed": "Британская короткошерстная",
+        "color": "ny 11",
+        "age": 0.2,
+        "gender": "male",
+        "description": "Шаловливый и энергичный котенок. Обожает играть с игрушками.",
+        "photo": "/Images/kittens/Yarden Lentsofland.jpg",
+        "isBooked": false,
+        "birthDate": "14.05.2026",
+        "litter": "14.05.2026",
+        "parents": {
+            "father": "Qwest Lentsofland",
+            "mother": "Olivia Lentsofland"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Yaara Lentsofland",
+        "breed": "Британская короткошерстная",
+        "color": "ny 11",
+        "age": 0.2,
+        "gender": "female",
+        "description": "Очень ласковая и спокойная девочка. Любит мурлыкать на коленях.",
+        "photo": "/Images/kittens/Yaara Lentsofland.jpg",
+        "isBooked": false,
+        "birthDate": "14.05.2026",
+        "litter": "14.05.2026",
+        "parents": {
+            "father": "Qwest Lentsofland",
+            "mother": "Olivia Lentsofland"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Yakira Lentsofland",
+        "breed": "Британская короткошерстная",
+        "color": "ny 11",
+        "age": 0.2,
+        "gender": "female",
+        "description": "Очень ласковая и спокойная девочка. Любит мурлыкать на коленях.",
+        "photo": "/Images/kittens/Yakira Lentsofland.jpg",
+        "isBooked": false,
+        "birthDate": "14.05.2026",
+        "litter": "14.05.2026",
+        "parents": {
+            "father": "Qwest Lentsofland",
+            "mother": "Olivia Lentsofland"
         }
     }
 ]

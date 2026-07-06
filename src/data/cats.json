@@ -1,6 +1,18 @@
 [
     {
         "id": 1,
+        "name": "Louis Vuitton Lentsofland",
+        "breed": "Британская короткошерстная",
+        "color": "ny 12",
+        "age": 4,
+        "gender": "male",
+        "title": "",
+        "character": "Величественный, спокойный, ласковый",
+        "description": "Кот с великолепной родословной. Обладатель титула 'Гранд-чемпион'. Отличный производитель, передает потомкам свой экстерьер и характер.",
+        "photo": "/Images/cats/Louis Vuitton Lentsofland.jpg"
+    },
+    {
+        "id": 2,
         "name": "Qwest Lentsofland",
         "breed": "Британская короткошерстная",
         "color": "ny 12",
@@ -12,7 +24,7 @@
         "photo": "/Images/cats/Qwest Lentsofland.jpg"
     },
     {
-        "id": 2,
+        "id": 3,
         "name": "Olivia Lentsofland",
         "breed": "Британская короткошерстная",
         "color": "ny 12",
@@ -22,18 +34,6 @@
         "character": "Грациозная, игривая, отличная мама",
         "description": "Грациозная и игривая кошка. Отличная мама. Имеет великолепную родословную и отличные выставочные оценки.",
         "photo": "/Images/cats/Olivia Lentsofland.jpg"
-    },
-    {
-        "id": 3,
-        "name": "Louis Vuitton Lentsofland",
-        "breed": "Британская короткошерстная",
-        "color": "ny 12",
-        "age": 4,
-        "gender": "male",
-        "title": "",
-        "character": "Величественный, спокойный, ласковый",
-        "description": "Кот с великолепной родословной. Обладатель титула 'Гранд-чемпион'. Отличный производитель, передает потомкам свой экстерьер и характер.",
-        "photo": "/Images/cats/Louis Vuitton Lentsofland.jpg"
     },
     {
         "id": 4,

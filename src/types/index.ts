@@ -4,17 +4,25 @@ export interface Cat {
     breed: string;
     color: string;
     age: number;
-    gender: 'male' | 'female';  // Добавляем пол
+    gender: 'male' | 'female';
     description: string;
     photo: string;
-    title?: string;              // Титулы/награды
-    character?: string;          // Характер
+    title?: string;
+    character?: string;
 }
 
-export interface Kitten extends Cat {
-    price: number;
+export interface Kitten {
+    id: number;
+    name: string;
+    breed: string;
+    color: string;
+    age: number;
+    gender: 'male' | 'female';
+    description: string;
+    photo: string;
     isBooked?: boolean;
     birthDate: string;
+    litter: string;  // Название помета
     parents?: {
         father: string;
         mother: string;

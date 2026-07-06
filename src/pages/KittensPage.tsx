@@ -6,8 +6,8 @@ import kittensData from '../data/kittens.json';
 const KittensPage = () => {
     const [selectedGender, setSelectedGender] = useState<'all' | 'male' | 'female'>('all');
     const [selectedColor, setSelectedColor] = useState<string>('all');
-    const [priceRange, setPriceRange] = useState<number>(100000);
     const [showOnlyAvailable, setShowOnlyAvailable] = useState<boolean>(true);
+    const [selectedLitter, setSelectedLitter] = useState<string>('all');
 
     // Получаем уникальные цвета для фильтра
     const colors = useMemo(() => {
@@ -15,33 +15,37 @@ const KittensPage = () => {
         return ['all', ...Array.from(uniqueColors)];
     }, []);
 
-    // Фильтрация котят
-    const filteredKittens = useMemo(() => {
-        let filtered = [...kittensData];
+    // Получаем уникальные пометы для фильтра
+    const litters = useMemo(() => {
+        const uniqueLitters = new Set(kittensData.map(k => k.litter));
+        return ['all', ...Array.from(uniqueLitters)];
+    }, []);
 
-        // Фильтр по полу
-        if (selectedGender !== 'all') {
-            filtered = filtered.filter(k => k.gender === selectedGender);
-        }
+    // Группировка котят по пометам
+    const groupedKittens = useMemo(() => {
+        const filtered = kittensData.filter(kitten => {
+            if (selectedGender !== 'all' && kitten.gender !== selectedGender) return false;
+            if (selectedColor !== 'all' && kitten.color !== selectedColor) return false;
+            if (selectedLitter !== 'all' && kitten.litter !== selectedLitter) return false;
+            if (showOnlyAvailable && kitten.isBooked) return false;
+            return true;
+        });
 
-        // Фильтр по цвету
-        if (selectedColor !== 'all') {
-            filtered = filtered.filter(k => k.color === selectedColor);
-        }
+        // Группируем по пометам
+        const groups: { [key: string]: Kitten[] } = {};
+        filtered.forEach(kitten => {
+            if (!groups[kitten.litter]) {
+                groups[kitten.litter] = [];
+            }
+            groups[kitten.litter].push(kitten);
+        });
+        return groups;
+    }, [selectedGender, selectedColor, selectedLitter, showOnlyAvailable]);
 
-        // Фильтр по цене
-        filtered = filtered.filter(k => k.price <= priceRange);
-
-        // Фильтр по доступности
-        if (showOnlyAvailable) {
-            filtered = filtered.filter(k => !k.isBooked);
-        }
-
-        return filtered;
-    }, [selectedGender, selectedColor, priceRange, showOnlyAvailable]);
-
+    const totalKittens = kittensData.length;
     const availableCount = kittensData.filter(k => !k.isBooked).length;
     const bookedCount = kittensData.filter(k => k.isBooked).length;
+    const litterCount = Object.keys(groupedKittens).length;
 
     return (
         <div className="kittens-page">
@@ -56,12 +60,20 @@ const KittensPage = () => {
                 {/* Статистика */}
                 <div className="kittens-stats">
                     <div className="stat-card">
+                        <span className="stat-value">{totalKittens}</span>
+                        <span className="stat-label">всего котят</span>
+                    </div>
+                    <div className="stat-card">
                         <span className="stat-value">{availableCount}</span>
                         <span className="stat-label">доступны</span>
                     </div>
                     <div className="stat-card">
                         <span className="stat-value">{bookedCount}</span>
                         <span className="stat-label">забронированы</span>
+                    </div>
+                    <div className="stat-card">
+                        <span className="stat-value">{litterCount}</span>
+                        <span className="stat-label">пометов</span>
                     </div>
                 </div>
 
@@ -83,13 +95,13 @@ const KittensPage = () => {
                                     className={`filter-btn ${selectedGender === 'male' ? 'active' : ''}`}
                                     onClick={() => setSelectedGender('male')}
                                 >
-                                    Мальчики
+                                    ♂ Мальчики
                                 </button>
                                 <button
                                     className={`filter-btn ${selectedGender === 'female' ? 'active' : ''}`}
                                     onClick={() => setSelectedGender('female')}
                                 >
-                                    Девочки
+                                    ♀ Девочки
                                 </button>
                             </div>
                         </div>
@@ -110,22 +122,18 @@ const KittensPage = () => {
                         </div>
 
                         <div className="filter-group">
-                            <label className="filter-label">
-                                Цена до {priceRange.toLocaleString()} ₽
-                            </label>
-                            <input
-                                type="range"
-                                min="10000"
-                                max="100000"
-                                step="5000"
-                                value={priceRange}
-                                onChange={(e) => setPriceRange(Number(e.target.value))}
-                                className="price-slider"
-                            />
-                            <div className="price-range-labels">
-                                <span>10 000 ₽</span>
-                                <span>100 000 ₽</span>
-                            </div>
+                            <label className="filter-label">Помет</label>
+                            <select 
+                                value={selectedLitter} 
+                                onChange={(e) => setSelectedLitter(e.target.value)}
+                                className="filter-select"
+                            >
+                                {litters.map(litter => (
+                                    <option key={litter} value={litter}>
+                                        {litter === 'all' ? 'Все пометы' : litter}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
 
                         <div className="filter-group">
@@ -139,13 +147,13 @@ const KittensPage = () => {
                             </label>
                         </div>
 
-                        {(selectedGender !== 'all' || selectedColor !== 'all' || priceRange < 100000 || showOnlyAvailable) && (
+                        {(selectedGender !== 'all' || selectedColor !== 'all' || selectedLitter !== 'all' || !showOnlyAvailable) && (
                             <button 
                                 className="reset-filters"
                                 onClick={() => {
                                     setSelectedGender('all');
                                     setSelectedColor('all');
-                                    setPriceRange(100000);
+                                    setSelectedLitter('all');
                                     setShowOnlyAvailable(true);
                                 }}
                             >
@@ -154,9 +162,9 @@ const KittensPage = () => {
                         )}
                     </aside>
 
-                    {/* Список котят */}
+                    {/* Список котят по пометам */}
                     <div className="kittens-content">
-                        {filteredKittens.length === 0 ? (
+                        {Object.keys(groupedKittens).length === 0 ? (
                             <div className="no-results">
                                 <p>К сожалению, котят по таким параметрам не найдено</p>
                                 <button 
@@ -164,7 +172,7 @@ const KittensPage = () => {
                                     onClick={() => {
                                         setSelectedGender('all');
                                         setSelectedColor('all');
-                                        setPriceRange(100000);
+                                        setSelectedLitter('all');
                                         setShowOnlyAvailable(true);
                                     }}
                                 >
@@ -172,38 +180,52 @@ const KittensPage = () => {
                                 </button>
                             </div>
                         ) : (
-                            <div className="kittens-grid">
-                                {filteredKittens.map(kitten => (
-                                    <div key={kitten.id} className="kitten-card">
-                                        <div className="kitten-card__badge">
-                                            {kitten.isBooked ? (
-                                                <span className="badge-booked">Забронирован</span>
-                                            ) : (
-                                                <span className="badge-available">Доступен</span>
-                                            )}
+                            <div className="litters-container">
+                                {Object.entries(groupedKittens).map(([litterName, kittens]) => (
+                                    <div key={litterName} className="litter-group">
+                                        <div className="litter-header">
+                                            <h2 className="litter-title">Помет «{litterName}»</h2>
+                                            <span className="litter-count">{kittens.length} котенка</span>
                                         </div>
-                                        <img 
-                                            src={kitten.photo} 
-                                            alt={kitten.name}
-                                            className="kitten-card__image"
-                                        />
-                                        <div className="kitten-card__content">
-                                            <h3>{kitten.name}</h3>
-                                            <div className="kitten-details">
-                                                <p><strong>Пол:</strong> {kitten.gender === 'male' ? 'Мальчик' : 'Девочка'}</p>
-                                                <p><strong>Окрас:</strong> {kitten.color}</p>
-                                                <p><strong>Дата рождения:</strong> {kitten.birthDate}</p>
-                                                <p><strong>Родители:</strong> {kitten.parents?.father} & {kitten.parents?.mother}</p>
-                                            </div>
-                                            <div className="kitten-card__footer">
-                                                <span className="price">{kitten.price.toLocaleString()} ₽</span>
-                                                <Link 
-                                                    to={`/kittens/${kitten.id}`} 
-                                                    className="card-link"
-                                                >
-                                                    Подробнее
-                                                </Link>
-                                            </div>
+                                        <div className="kittens-grid">
+                                            {kittens.map(kitten => (
+                                                <div key={kitten.id} className="kitten-card">
+                                                    <div className="kitten-card__badge">
+                                                        {kitten.isBooked ? (
+                                                            <span className="badge-booked">Забронирован</span>
+                                                        ) : (
+                                                            <span className="badge-available">Доступен</span>
+                                                        )}
+                                                    </div>
+                                                    <Link to={`/kittens/${kitten.id}`} className="kitten-card__link">
+                                                        <div className="kitten-card__image-wrapper">
+                                                            <img 
+                                                                src={kitten.photo} 
+                                                                alt={kitten.name}
+                                                                className="kitten-card__image"
+                                                                loading="lazy"
+                                                            />
+                                                        </div>
+                                                        <div className="kitten-card__content">
+                                                            <div className="kitten-card__header">
+                                                                <h3>{kitten.name}</h3>
+                                                                <span className="kitten-card__gender">
+                                                                    {kitten.gender === 'male' ? '♂' : '♀'}
+                                                                </span>
+                                                            </div>
+                                                            <p className="kitten-card__breed">{kitten.breed}</p>
+                                                            <p className="kitten-card__color">{kitten.color}</p>
+                                                            <div className="kitten-details">
+                                                                <p><strong>Дата рождения:</strong> {kitten.birthDate}</p>
+                                                                <p><strong>Родители:</strong> {kitten.parents?.father} & {kitten.parents?.mother}</p>
+                                                            </div>
+                                                            <div className="kitten-card__footer">
+                                                                <span className="card-link">Подробнее →</span>
+                                                            </div>
+                                                        </div>
+                                                    </Link>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 ))}

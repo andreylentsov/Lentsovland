@@ -2070,3 +2070,133 @@ button {
         color: black;
     }
 }
+
+
+/* ==================== LITTERS (ПОМЕТЫ) ==================== */
+.litters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.litter-group {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary);
+}
+
+.litter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--gray-200);
+}
+
+.litter-title {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 0;
+}
+
+.litter-title::before {
+    content: '🐾 ';
+}
+
+.litter-count {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    background: var(--gray-50);
+    padding: 0.25rem 1rem;
+    border-radius: var(--radius-full);
+}
+
+/* Обновленные карточки котят */
+.kitten-card__link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.kitten-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.kitten-card__header h3 {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+
+.kitten-card__gender {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.kitten-card__breed {
+    font-weight: 500;
+    color: var(--secondary);
+    font-size: 0.95rem;
+}
+
+.kitten-card__color {
+    color: var(--gray-600);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.kitten-card__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+/* Убираем цены из карточек котят */
+.kitten-card__content .price {
+    display: none;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .litter-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .litter-title {
+        font-size: 1.3rem;
+    }
+    
+    .litter-group {
+        padding: 1rem;
+    }
+    
+    .litters-container {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .litter-group {
+        padding: 0.75rem;
+    }
+    
+    .litter-title {
+        font-size: 1.1rem;
+    }
+    
+    .litter-count {
+        font-size: 0.8rem;
+    }
+}

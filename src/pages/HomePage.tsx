@@ -103,32 +103,31 @@ const HomePage = () => {
     </div>
 </section>
 
-            {/* Доступные котята */}
-            <section className="featured-kittens">
-                <div className="container">
-                    <h2>Котята в поиске семьи</h2>
-                    <div className="featured-grid">
-                        {featuredKittens.map(kitten => (
-                            <div key={kitten.id} className="featured-card">
-                                <Link to={`/kittens/${kitten.id}`} className="featured-card__link">
-                                    <div className="featured-card__image-wrapper">
-                                        <div className="featured-card__badge">
-                                            {kitten.isBooked ? 'Забронирован' : 'Доступен'}
-                                        </div>
-                                        <img 
-                                            src={kitten.photo} 
-                                            alt={kitten.name}
-                                            className="featured-card__image"
-                                        />
-                                    </div>
-                                    <div className="featured-card__content">
-                                        <h3>{kitten.name}</h3>
-                                        <p>{kitten.breed}, {kitten.color}</p>
-                                        <p className="price">{kitten.price.toLocaleString()} ₽</p>
-                                        <span className="card-link">Подробнее →</span>
-                                    </div>
-                                </Link>
+<section className="featured-kittens">
+    <div className="container">
+        <h2>Котята в поиске семьи</h2>
+            <div className="featured-grid">
+                {featuredKittens.map(kitten => (
+                    <div key={kitten.id} className="featured-card">
+                        <Link to={`/kittens/${kitten.id}`} className="featured-card__link">
+                            <div className="featured-card__image-wrapper">
+                                <div className="featured-card__badge">
+                                    {kitten.isBooked ? 'Забронирован' : 'Доступен'}
+                                </div>
+                                <img 
+                                src={kitten.photo} 
+                                alt={kitten.name}
+                                className="featured-card__image"
+                                />
                             </div>
+                        <div className="featured-card__content">
+                            <h3>{kitten.name}</h3>
+                            <p>{kitten.breed}, {kitten.color}</p>
+                            <p className="kitten-litter">Помет: {kitten.litter}</p>  {/* Добавляем помет */}
+                            <span className="card-link">Подробнее →</span>
+                        </div>
+                    </Link>
+                    </div>
                         ))}
                     </div>
                     <div className="section-footer">
