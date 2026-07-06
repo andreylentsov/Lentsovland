@@ -4,13 +4,77 @@ import catsData from '../data/cats.json';
 import kittensData from '../data/kittens.json';
 
 const HomePage = () => {
-    // Берем первых 3 котов и 3 котят для отображения на главной
+    // Берем первых 3 котов для отображения на главной
     const featuredCats = catsData.slice(0, 3);
-    const featuredKittens = kittensData.slice(0, 3);
+    
+    // Фильтруем только доступных котят и берем первых 3
+    const availableKittens = kittensData.filter(kitten => !kitten.isBooked);
+    const featuredKittens = availableKittens.slice(0, 3);
+
+    // Функция для рендера секции с котятами
+    const renderKittensSection = () => {
+        if (featuredKittens.length === 0) {
+            return (
+                <div className="no-kittens-message">
+                    <div className="no-kittens-content">
+                        <span className="no-kittens-icon">🐱</span>
+                        <h3>Скоро пополнение!</h3>
+                        <p>
+                            На данный момент все котята нашли свои семьи. 
+                            Следите за обновлениями — скоро появятся новые малыши!
+                        </p>
+                        <Link to="/contacts" className="outline-button">
+                            Узнать о пополнении
+                        </Link>
+                    </div>
+                </div>
+            );
+        }
+
+        return (
+            <>
+                <div className="featured-grid">
+                    {featuredKittens.map(kitten => (
+                        <div key={kitten.id} className="featured-card">
+                            <Link to={`/kittens/${kitten.id}`} className="featured-card__link">
+                                <div className="featured-card__image-wrapper">
+                                    <div className="featured-card__badge">
+                                        <span className="badge-available">✅ Доступен</span>
+                                    </div>
+                                    <img 
+                                        src={kitten.photo} 
+                                        alt={kitten.name}
+                                        className="featured-card__image"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <div className="featured-card__content">
+                                    <h3>{kitten.name}</h3>
+                                    <p>{kitten.breed}, {kitten.color}</p>
+                                    <p className="kitten-litter">Помет: {kitten.litter}</p>
+                                    <div className="kitten-status">
+                                        <span className="kitten-card__status-bottom available">
+                                            ✅ Доступен
+                                        </span>
+                                    </div>
+                                    <span className="card-link">Подробнее →</span>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+                <div className="section-footer">
+                    <Link to="/kittens" className="cta-button">
+                        Смотреть всех котят
+                    </Link>
+                </div>
+            </>
+        );
+    };
 
     return (
         <div className="home-page">
-            {/* Hero секция - исправлено центрирование */}
+            {/* Hero секция */}
             <section className="hero">
                 <div className="container">
                     <div className="hero-content">
@@ -65,76 +129,44 @@ const HomePage = () => {
                 </div>
             </section>
 
-            {/* Наши производители - исправлены фото */}
-<section className="featured-cats">
-    <div className="container">
-        <h2>Наши производители</h2>
-        <div className="featured-grid">
-            {featuredCats.map(cat => (
-                <div key={cat.id} className="featured-card">
-                    <Link to={`/cats/${cat.id}`} className="featured-card__link">
-                        <div className="featured-card__image-wrapper">
-                            <img 
-                                src={cat.photo} 
-                                alt={cat.name}
-                                className="featured-card__image"
-                                loading="lazy"
-                                onError={(e) => {
-                                    // Запасной вариант при ошибке загрузки
-                                    const target = e.target as HTMLImageElement;
-                                    target.src = '/images/placeholder.jpg';
-                                }}
-                            />
-                        </div>
-                        <div className="featured-card__content">
-                            <h3>{cat.name}</h3>
-                            <p>{cat.breed}, {cat.color}</p>
-                            <span className="card-link">Подробнее →</span>
-                        </div>
-                    </Link>
-                </div>
-            ))}
-        </div>
-        <div className="section-footer">
-            <Link to="/cats" className="outline-button">
-                Смотреть всех производителей
-            </Link>
-        </div>
-    </div>
-</section>
-
-<section className="featured-kittens">
-    <div className="container">
-        <h2>Котята в поиске семьи</h2>
-            <div className="featured-grid">
-                {featuredKittens.map(kitten => (
-                    <div key={kitten.id} className="featured-card">
-                        <Link to={`/kittens/${kitten.id}`} className="featured-card__link">
-                            <div className="featured-card__image-wrapper">
-                                <div className="featured-card__badge">
-                                    {kitten.isBooked ? 'Забронирован' : 'Доступен'}
-                                </div>
-                                <img 
-                                src={kitten.photo} 
-                                alt={kitten.name}
-                                className="featured-card__image"
-                                />
+            {/* Наши производители */}
+            <section className="featured-cats">
+                <div className="container">
+                    <h2>Наши производители</h2>
+                    <div className="featured-grid">
+                        {featuredCats.map(cat => (
+                            <div key={cat.id} className="featured-card">
+                                <Link to={`/cats/${cat.id}`} className="featured-card__link">
+                                    <div className="featured-card__image-wrapper">
+                                        <img 
+                                            src={cat.photo} 
+                                            alt={cat.name}
+                                            className="featured-card__image"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <div className="featured-card__content">
+                                        <h3>{cat.name}</h3>
+                                        <p>{cat.breed}, {cat.color}</p>
+                                        <span className="card-link">Подробнее →</span>
+                                    </div>
+                                </Link>
                             </div>
-                        <div className="featured-card__content">
-                            <h3>{kitten.name}</h3>
-                            <p>{kitten.breed}, {kitten.color}</p>
-                            <p className="kitten-litter">Помет: {kitten.litter}</p>  {/* Добавляем помет */}
-                            <span className="card-link">Подробнее →</span>
-                        </div>
-                    </Link>
-                    </div>
                         ))}
                     </div>
                     <div className="section-footer">
-                        <Link to="/kittens" className="cta-button">
-                            Выбрать котенка
+                        <Link to="/cats" className="outline-button">
+                            Смотреть всех производителей
                         </Link>
                     </div>
+                </div>
+            </section>
+
+            {/* Доступные котята - только не забронированные */}
+            <section className="featured-kittens">
+                <div className="container">
+                    <h2>Котята в поиске семьи</h2>
+                    {renderKittensSection()}
                 </div>
             </section>
 

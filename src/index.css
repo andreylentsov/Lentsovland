@@ -2200,3 +2200,160 @@ button {
         font-size: 0.8rem;
     }
 }
+
+/* Добавить в index.css */
+.kitten-litter {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    margin-bottom: 0.5rem;
+}
+
+.kitten-litter::before {
+    content: '📋 ';
+}
+
+/* ==================== СТАТУСЫ КОТЯТ - УЛУЧШЕННАЯ ВИДИМОСТЬ ==================== */
+
+/* Для карточек на главной странице */
+.featured-card__badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 10;
+}
+
+.featured-card__badge .badge-available,
+.featured-card__badge .badge-booked {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.featured-card__badge .badge-available {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+}
+
+.featured-card__badge .badge-booked {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+/* Для карточек на странице Котята */
+.kitten-card__badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 10;
+}
+
+.kitten-card__badge .badge-available,
+.kitten-card__badge .badge-booked {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.kitten-card__badge .badge-available {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+}
+
+.kitten-card__badge .badge-booked {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+/* Альтернативный вариант с иконками */
+.kitten-card__badge .badge-available::before {
+    content: '✅ ';
+    font-size: 0.9rem;
+}
+
+.kitten-card__badge .badge-booked::before {
+    content: '🔒 ';
+    font-size: 0.9rem;
+}
+
+.featured-card__badge .badge-available::before {
+    content: '✅ ';
+    font-size: 0.9rem;
+}
+
+.featured-card__badge .badge-booked::before {
+    content: '🔒 ';
+    font-size: 0.9rem;
+}
+
+/* ==================== ДОПОЛНИТЕЛЬНЫЙ СТАТУС ВНИЗУ КАРТОЧКИ ==================== */
+/* Дублируем статус внизу для надежности */
+
+.kitten-card__status-bottom {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kitten-card__status-bottom.available {
+    background: #d4edda;
+    color: #155724;
+}
+
+.kitten-card__status-bottom.booked {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Добавляем статус в карточку */
+.kitten-card__content .kitten-status {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 768px) {
+    .featured-card__badge .badge-available,
+    .featured-card__badge .badge-booked,
+    .kitten-card__badge .badge-available,
+    .kitten-card__badge .badge-booked {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-card__badge {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .kitten-card__badge {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .featured-card__badge .badge-available,
+    .featured-card__badge .badge-booked,
+    .kitten-card__badge .badge-available,
+    .kitten-card__badge .badge-booked {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
+        border-width: 1px;
+    }
+}

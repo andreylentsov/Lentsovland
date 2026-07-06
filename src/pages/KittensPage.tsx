@@ -189,42 +189,52 @@ const KittensPage = () => {
                                         </div>
                                         <div className="kittens-grid">
                                             {kittens.map(kitten => (
-                                                <div key={kitten.id} className="kitten-card">
-                                                    <div className="kitten-card__badge">
-                                                        {kitten.isBooked ? (
-                                                            <span className="badge-booked">Забронирован</span>
-                                                        ) : (
-                                                            <span className="badge-available">Доступен</span>
-                                                        )}
-                                                    </div>
-                                                    <Link to={`/kittens/${kitten.id}`} className="kitten-card__link">
-                                                        <div className="kitten-card__image-wrapper">
-                                                            <img 
-                                                                src={kitten.photo} 
-                                                                alt={kitten.name}
-                                                                className="kitten-card__image"
-                                                                loading="lazy"
-                                                            />
-                                                        </div>
-                                                        <div className="kitten-card__content">
-                                                            <div className="kitten-card__header">
-                                                                <h3>{kitten.name}</h3>
-                                                                <span className="kitten-card__gender">
-                                                                    {kitten.gender === 'male' ? '♂' : '♀'}
-                                                                </span>
-                                                            </div>
-                                                            <p className="kitten-card__breed">{kitten.breed}</p>
-                                                            <p className="kitten-card__color">{kitten.color}</p>
-                                                            <div className="kitten-details">
-                                                                <p><strong>Дата рождения:</strong> {kitten.birthDate}</p>
-                                                                <p><strong>Родители:</strong> {kitten.parents?.father} & {kitten.parents?.mother}</p>
-                                                            </div>
-                                                            <div className="kitten-card__footer">
-                                                                <span className="card-link">Подробнее →</span>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                </div>
+                                                <div className="kitten-card">
+    {/* Бейдж статуса - улучшенный */}
+    <div className="kitten-card__badge">
+        {kitten.isBooked ? (
+            <span className="badge-booked">Забронирован</span>
+        ) : (
+            <span className="badge-available">Доступен</span>
+        )}
+    </div>
+    
+    <Link to={`/kittens/${kitten.id}`} className="kitten-card__link">
+        <div className="kitten-card__image-wrapper">
+            <img 
+                src={kitten.photo} 
+                alt={kitten.name}
+                className="kitten-card__image"
+                loading="lazy"
+            />
+        </div>
+        <div className="kitten-card__content">
+            <div className="kitten-card__header">
+                <h3>{kitten.name}</h3>
+                <span className="kitten-card__gender">
+                    {kitten.gender === 'male' ? '♂' : '♀'}
+                </span>
+            </div>
+            <p className="kitten-card__breed">{kitten.breed}</p>
+            <p className="kitten-card__color">{kitten.color}</p>
+            <div className="kitten-details">
+                <p><strong>Дата рождения:</strong> {kitten.birthDate}</p>
+                <p><strong>Родители:</strong> {kitten.parents?.father} & {kitten.parents?.mother}</p>
+            </div>
+            
+            {/* Дублируем статус внизу для надежности */}
+            <div className="kitten-status">
+                <span className={`kitten-card__status-bottom ${kitten.isBooked ? 'booked' : 'available'}`}>
+                    {kitten.isBooked ? '🔒 Забронирован' : '✅ Доступен'}
+                </span>
+            </div>
+            
+            <div className="kitten-card__footer">
+                <span className="card-link">Подробнее →</span>
+            </div>
+        </div>
+    </Link>
+</div>
                                             ))}
                                         </div>
                                     </div>
