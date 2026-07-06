@@ -4,15 +4,17 @@ export interface Cat {
     breed: string;
     color: string;
     age: number;
+    gender: 'male' | 'female';  // Добавляем пол
     description: string;
     photo: string;
+    title?: string;              // Титулы/награды
+    character?: string;          // Характер
 }
 
 export interface Kitten extends Cat {
     price: number;
     isBooked?: boolean;
     birthDate: string;
-    gender: 'male' | 'female';  // Добавляем пол
     parents?: {
         father: string;
         mother: string;

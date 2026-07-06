@@ -6,12 +6,10 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
 
-    // Закрываем меню при смене страницы
     useEffect(() => {
         setIsMenuOpen(false);
     }, [location]);
 
-    // Отслеживаем скролл для изменения стиля шапки
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
@@ -20,7 +18,6 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Закрываем меню при клике на ссылку (для мобильных)
     const handleLinkClick = () => {
         setIsMenuOpen(false);
     };
@@ -62,7 +59,7 @@ const Header = () => {
                                 isActive ? 'nav__link nav__link--active' : 'nav__link'
                             }
                         >
-                            Наши коты
+                            Производители
                         </NavLink>
                         <NavLink 
                             to="/kittens" 
@@ -84,13 +81,13 @@ const Header = () => {
 
                     {/* Контактная информация */}
                     <div className="header__contact">
-                        <a href="tel:+79911183092" className="header__phone">
+                        <a href="tel:+79123456789" className="header__phone">
                             <span className="header__phone-icon">📞</span>
-                            <span>+7 (991) 118-30-92</span>
+                            <span>+7 (912) 345-67-89</span>
                         </a>
                     </div>
 
-                    {/* Бургер-меню (мобильная версия) */}
+                    {/* Бургер-меню */}
                     <button 
                         className={`burger ${isMenuOpen ? 'burger--active' : ''}`}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -133,7 +130,7 @@ const Header = () => {
                             onClick={handleLinkClick}
                         >
                             <span className="mobile-menu__icon">🐱</span>
-                            Наши коты
+                            Производители
                         </NavLink>
                         <NavLink 
                             to="/kittens" 
@@ -157,8 +154,8 @@ const Header = () => {
                         </NavLink>
                     </nav>
                     <div className="mobile-menu__contact">
-                        <a href="tel:+79911183092" className="mobile-menu__phone">
-                            📞 +7 (991) 118-30-92
+                        <a href="tel:+79123456789" className="mobile-menu__phone">
+                            📞 +7 (912) 345-67-89
                         </a>
                         <a href="mailto:info@britcat.ru" className="mobile-menu__email">
                             ✉️ info@britcat.ru

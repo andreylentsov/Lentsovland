@@ -5,8 +5,11 @@
         "breed": "Британская короткошерстная",
         "color": "ny 12",
         "age": 3,
-        "description": "Очень добрый и спокойный кот. Любит детей. Имеет награды на выставках.",
-        "photo": "/src/data/photo_5357230515418765587_x.jpg"
+        "gender": "male",
+        "title": "",
+        "character": "Спокойный, добрый, любит детей",
+        "description": "Очень добрый и спокойный кот. Любит детей. Имеет награды на выставках. Отличный производитель с прекрасной родословной.",
+        "photo": "src/assets/Images/cats/Qwest Lentsofland.jpg"
     },
     {
         "id": 2,
@@ -14,7 +17,34 @@
         "breed": "Британская короткошерстная",
         "color": "ny 12",
         "age": 2,
-        "description": "Грациозная и игривая кошка. Отличная мама.",
-        "photo": "/src/data/photo_5357230515418765578_y.jpg"
+        "gender": "female",
+        "title": "",
+        "character": "Грациозная, игривая, отличная мама",
+        "description": "Грациозная и игривая кошка. Отличная мама. Имеет великолепную родословную и отличные выставочные оценки.",
+        "photo": "src/assets/Images/cats/Olivia Lentsofland.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Louis Vuitton Lentsofland",
+        "breed": "Британская короткошерстная",
+        "color": "ny 12",
+        "age": 4,
+        "gender": "male",
+        "title": "",
+        "character": "Величественный, спокойный, ласковый",
+        "description": "Кот с великолепной родословной. Обладатель титула 'Гранд-чемпион'. Отличный производитель, передает потомкам свой экстерьер и характер.",
+        "photo": "/src/assets/images/cats/Louis Vuitton Lentsofland.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Q-Belle Lentsofland",
+        "breed": "Британская короткошерстная",
+        "color": "ny 1133",
+        "age": 3,
+        "gender": "female",
+        "title": "",
+        "character": "Элегантная, умная, внимательная",
+        "description": "Элегантная кошка с бархатистой шерстью. Умная и внимательная, отлично воспитывает своих котят.",
+        "photo": "src/assets/Images/cats/Q-Belle Lentsofland.jpg"
     }
 ]
