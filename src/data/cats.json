@@ -9,7 +9,7 @@
         "title": "",
         "character": "Спокойный, добрый, любит детей",
         "description": "Очень добрый и спокойный кот. Любит детей. Имеет награды на выставках. Отличный производитель с прекрасной родословной.",
-        "photo": "src/assets/Images/cats/Qwest Lentsofland.jpg"
+        "photo": "public/Images/cats/Qwest Lentsofland.jpg"
     },
     {
         "id": 2,
@@ -21,7 +21,7 @@
         "title": "",
         "character": "Грациозная, игривая, отличная мама",
         "description": "Грациозная и игривая кошка. Отличная мама. Имеет великолепную родословную и отличные выставочные оценки.",
-        "photo": "src/assets/Images/cats/Olivia Lentsofland.jpg"
+        "photo": "public/Images/cats/Olivia Lentsofland.jpg"
     },
     {
         "id": 3,
@@ -33,7 +33,7 @@
         "title": "",
         "character": "Величественный, спокойный, ласковый",
         "description": "Кот с великолепной родословной. Обладатель титула 'Гранд-чемпион'. Отличный производитель, передает потомкам свой экстерьер и характер.",
-        "photo": "/src/assets/images/cats/Louis Vuitton Lentsofland.jpg"
+        "photo": "public/Images/cats/Louis Vuitton Lentsofland.jpg"
     },
     {
         "id": 4,
@@ -45,6 +45,6 @@
         "title": "",
         "character": "Элегантная, умная, внимательная",
         "description": "Элегантная кошка с бархатистой шерстью. Умная и внимательная, отлично воспитывает своих котят.",
-        "photo": "src/assets/Images/cats/Q-Belle Lentsofland.jpg"
+        "photo": "public/Images/cats/Q-Belle Lentsofland.jpg"
     }
 ]
