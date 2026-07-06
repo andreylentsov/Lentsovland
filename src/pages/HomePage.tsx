@@ -66,36 +66,42 @@ const HomePage = () => {
             </section>
 
             {/* Наши производители - исправлены фото */}
-            <section className="featured-cats">
-                <div className="container">
-                    <h2>Наши производители</h2>
-                    <div className="featured-grid">
-                        {featuredCats.map(cat => (
-                            <div key={cat.id} className="featured-card">
-                                <Link to={`/cats/${cat.id}`} className="featured-card__link">
-                                    <div className="featured-card__image-wrapper">
-                                        <img 
-                                            src={cat.photo} 
-                                            alt={cat.name}
-                                            className="featured-card__image"
-                                        />
-                                    </div>
-                                    <div className="featured-card__content">
-                                        <h3>{cat.name}</h3>
-                                        <p>{cat.breed}, {cat.color}</p>
-                                        <span className="card-link">Подробнее →</span>
-                                    </div>
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="section-footer">
-                        <Link to="/cats" className="outline-button">
-                            Смотреть всех производителей
-                        </Link>
-                    </div>
+<section className="featured-cats">
+    <div className="container">
+        <h2>Наши производители</h2>
+        <div className="featured-grid">
+            {featuredCats.map(cat => (
+                <div key={cat.id} className="featured-card">
+                    <Link to={`/cats/${cat.id}`} className="featured-card__link">
+                        <div className="featured-card__image-wrapper">
+                            <img 
+                                src={cat.photo} 
+                                alt={cat.name}
+                                className="featured-card__image"
+                                loading="lazy"
+                                onError={(e) => {
+                                    // Запасной вариант при ошибке загрузки
+                                    const target = e.target as HTMLImageElement;
+                                    target.src = '/images/placeholder.jpg';
+                                }}
+                            />
+                        </div>
+                        <div className="featured-card__content">
+                            <h3>{cat.name}</h3>
+                            <p>{cat.breed}, {cat.color}</p>
+                            <span className="card-link">Подробнее →</span>
+                        </div>
+                    </Link>
                 </div>
-            </section>
+            ))}
+        </div>
+        <div className="section-footer">
+            <Link to="/cats" className="outline-button">
+                Смотреть всех производителей
+            </Link>
+        </div>
+    </div>
+</section>
 
             {/* Доступные котята */}
             <section className="featured-kittens">

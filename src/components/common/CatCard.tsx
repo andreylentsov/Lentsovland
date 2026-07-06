@@ -5,7 +5,7 @@ interface CatCardProps {
     cat: Cat;
     showPrice?: boolean;
     price?: number;
-    variant?: 'default' | 'compact';  // Добавляем вариант отображения
+    variant?: 'default' | 'compact';
 }
 
 const CatCard = ({ cat, showPrice = false, price, variant = 'default' }: CatCardProps) => {
@@ -26,6 +26,11 @@ const CatCard = ({ cat, showPrice = false, price, variant = 'default' }: CatCard
                         alt={cat.name}
                         className="cat-card__image"
                         loading="lazy"
+                        onError={(e) => {
+                            // Запасной вариант, если фото не загрузилось
+                            const target = e.target as HTMLImageElement;
+                            target.src = '/images/placeholder.jpg';
+                        }}
                     />
                     {cat.title && (
                         <div className="cat-card__title-badge">
