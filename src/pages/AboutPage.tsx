@@ -41,55 +41,19 @@ const AboutPage = () => {
                             получает все необходимые прививки.
                         </p>
                     </div>
-                    <div className="about-main__image">
+                    {/* <div className="about-main__image">
                         <img 
                             src="/src/assets/images/about/nursery.jpg" 
                             alt="Наш питомник"
                         />
-                    </div>
+                    </div> */}
                 </section>
 
                 {/* Наши принципы */}
-                <section className="principles">
-                    <h2>Наши принципы</h2>
-                    <div className="principles-grid">
-                        <div className="principle">
-                            <div className="principle-number">01</div>
-                            <h3>Здоровье прежде всего</h3>
-                            <p>
-                                Регулярные осмотры ветеринара, качественное 
-                                питание и необходимые прививки
-                            </p>
-                        </div>
-                        <div className="principle">
-                            <div className="principle-number">02</div>
-                            <h3>Племенная работа</h3>
-                            <p>
-                                Тщательный отбор пар, работа с лучшими 
-                                заводчиками России и Европы
-                            </p>
-                        </div>
-                        <div className="principle">
-                            <div className="principle-number">03</div>
-                            <h3>Социализация</h3>
-                            <p>
-                                Котята растут в домашних условиях, привыкают 
-                                к людям и другим животным
-                            </p>
-                        </div>
-                        <div className="principle">
-                            <div className="principle-number">04</div>
-                            <h3>Прозрачность</h3>
-                            <p>
-                                Предоставляем все документы, тесты и 
-                                фотографии родителей
-                            </p>
-                        </div>
-                    </div>
-                </section>
+
 
                 {/* Наши достижения */}
-                <section className="achievements">
+                {/* <section className="achievements">
                     <h2>Наши достижения</h2>
                     <div className="achievements-list">
                         <div className="achievement-item">
@@ -117,13 +81,13 @@ const AboutPage = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
 
             
 
                 {/* Лицензии и сертификаты */}
-                <section className="certificates">
+                {/* <section className="certificates">
                     <h2>Сертификаты и лицензии</h2>
                     <div className="certificates-grid">
                         <div className="certificate">
@@ -141,7 +105,7 @@ const AboutPage = () => {
                             <p>Членство в клубе "Русская кошка"</p>
                         </div>
                     </div>
-                </section>
+                </section> */}
             </div>
         </div>
     );
