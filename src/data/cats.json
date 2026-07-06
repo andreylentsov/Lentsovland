@@ -1,18 +1,18 @@
 [
     {
         "id": 1,
-        "name": "Леопольд",
+        "name": "Qwest Lentsofland",
         "breed": "Британская короткошерстная",
-        "color": "Голубой",
+        "color": "ny 12",
         "age": 3,
         "description": "Очень добрый и спокойный кот. Любит детей. Имеет награды на выставках.",
         "photo": "/src/assets/images/cats/leopold.jpg"
     },
     {
         "id": 2,
-        "name": "Клеопатра",
+        "name": "Olivia Lentsofland",
         "breed": "Британская короткошерстная",
-        "color": "Лиловый",
+        "color": "ny 12",
         "age": 2,
         "description": "Грациозная и игривая кошка. Отличная мама.",
         "photo": "/src/assets/images/cats/kleopatra.jpg"
