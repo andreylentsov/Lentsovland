@@ -19,44 +19,6 @@ const Footer = () => {
                             Здоровые и красивые котята с родословной, 
                             документы и ветеринарный паспорт.
                         </p>
-                        <div className="footer__social">
-                            <a 
-                                href="https://instagram.com" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="social-link"
-                                aria-label="Instagram"
-                            >
-                                📷
-                            </a>
-                            <a 
-                                href="https://vk.com" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="social-link"
-                                aria-label="VK"
-                            >
-                                📱
-                            </a>
-                            <a 
-                                href="https://t.me" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="social-link"
-                                aria-label="Telegram"
-                            >
-                                💬
-                            </a>
-                            <a 
-                                href="https://youtube.com" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="social-link"
-                                aria-label="YouTube"
-                            >
-                                ▶️
-                            </a>
-                        </div>
                     </div>
 
                     {/* Колонка 2: Навигация */}
@@ -115,7 +77,7 @@ const Footer = () => {
                     <p className="footer__dev">
                         Разработка сайта — 
                         <a href="#" target="_blank" rel="noopener noreferrer">
-                            Мамин разработчик
+                            Lensky14
                         </a>
                     </p>
                 </div>
